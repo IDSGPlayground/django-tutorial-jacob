@@ -1,3 +1,4 @@
+from django.shortcuts import render_to_response
 from django.template import Context, loader
 from django.http import HttpResponse, Http404
 from polls.models import Poll
