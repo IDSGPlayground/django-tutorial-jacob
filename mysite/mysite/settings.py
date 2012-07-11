@@ -1,4 +1,6 @@
 # Django settings for mysite project.
+import os.path
+PROJ_HOME_PWD = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) #makes the variable the absolute path of the top-level mysite dir
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -12,7 +14,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/home/jknew/workspace/django-tutorial-jacob/mysite/db.sqlite3',                      # Or path to database file if using sqlite3.
+        'NAME': os.path.join(PROJ_HOME_PWD,'db.sqlite3'),  # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -109,7 +111,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/home/jknew/workspace/django-tutorial-jacob/templates/'
+    os.path.join(os.path.dirname(PROJ_HOME_PWD),'templates/')
 )
 
 INSTALLED_APPS = (
